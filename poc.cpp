@@ -12,7 +12,7 @@ static inline dotz::vec2 g[512];
 static inline void init() {
   for (auto i = 0; i < 256; i++) {
     p[i] = i;
-    g[i] = dotz::normalise(dotz::vec2(rng::randf(), rng::randf()));
+    g[i] = dotz::normalise(dotz::vec2(rng::randf(), rng::randf()) * 2.0f - 1.0f);
   }
   for (auto i = 0; i < 256; i++) {
     auto j = rng::rand(256);
