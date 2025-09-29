@@ -48,14 +48,16 @@ static inline float noise(dotz::vec2 pos) {
 
   dotz::vec2 s { s_curve(r0.x), s_curve(r0.y) };
 
-  auto u = dotz::mix(s.x,
+  auto u = dotz::mix(
       r0.x * g00.x + r0.y * g00.y,
-      r1.x * g10.x + r0.y * g10.y);
-  auto v = dotz::mix(s.x,
+      r1.x * g10.x + r0.y * g10.y,
+      s.x);
+  auto v = dotz::mix(
       r0.x * g01.x + r1.y * g01.y,
-      r1.x * g11.x + r1.y * g11.y);
+      r1.x * g11.x + r1.y * g11.y,
+      s.x);
 
-  return dotz::mix(s.y, u, v);
+  return dotz::mix(u, v, s.y);
 }
 
 int main() {
