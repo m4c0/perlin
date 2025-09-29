@@ -26,8 +26,8 @@ static inline void init() {
   }
 }
 
-static inline constexpr auto s_curve(float t) {
-  return t * t * (3.0f - 2.0f * t);
+static inline constexpr float s_curve(float t) {
+  return t * t * t * (t * (t * 6.0 - 15.0) + 10.0);
 }
 
 static inline float noise(dotz::vec2 pos) {
