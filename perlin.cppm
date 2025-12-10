@@ -28,7 +28,7 @@ public:
     }
   }
 
-  constexpr float noise(dotz::vec2 pos) const {
+  [[nodiscard]] constexpr float noise(dotz::vec2 pos) const {
     dotz::vec2 t = pos + 0x1000;
     dotz::ivec2 ti { static_cast<int>(t.x), static_cast<int>(t.y) };
     dotz::ivec2 b0 { ti.x & 0xFF, ti.y & 0xFF };
@@ -58,5 +58,5 @@ public:
     return dotz::mix(u, v, s.y);
   }
 
-  constexpr float operator()(dotz::vec2 pos) const { return noise(pos); }
+  [[nodiscard]] constexpr float operator()(dotz::vec2 pos) const { return noise(pos); }
 };
